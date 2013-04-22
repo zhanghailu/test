@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
 dir=$1
+help()
+{
+cat << EOF
+    $0 USAGE
+example: $0 ./ 
+EOF
+}
+if [ $# = 0 ];then
+    help
+    exit 3
+fi
 
 list=`ls  | sort -n `
 firname=`ls |sort -n|head -n1 |awk -F '[_.]+' '{print $3}'`
